@@ -36,10 +36,14 @@ TOKEN_SPEC = [
 def tokenizer(code) -> list[Token]:
     tokens: list[Token] = []
     idx = 0
+    line = 1
     
     compiled_tokens = [re.compile(token_regex) for _, token_regex in TOKEN_SPEC]
     
     while idx < len(code):
+        if code[idx] == "\n":
+            line += 1
+        
         match = None
         for i, token_regex in enumerate(compiled_tokens):
             match = token_regex.match(code, idx)
@@ -51,16 +55,12 @@ def tokenizer(code) -> list[Token]:
                 idx = match.end()
                 break
         if not match:
-            raise Exception("Unexpected character: " + code[idx])
+            raise Exception("Unexpected character on line " + str(line) + " : " + code[idx])
     return tokens
 
 if __name__ == "__main__":
-    code = """
-    var a { Type: Integer, InChange: { value * 5 } } = 10;
-    // Merhaba
-    /*
-    Merhaba
-    */
+    code = """var a { Type: Integer, InChange: { value * 5 } } = 10;
+    @
     """
     tokens = tokenizer(code)
     for token in tokens:

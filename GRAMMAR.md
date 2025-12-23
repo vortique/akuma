@@ -41,20 +41,21 @@ identifier = letter { letter | digit | "_" } ;
 var_decl =
     "var"
     identifier
-    property_block
+    var_property_block
     "="
     expression
     ";" ;
 
-property_block =
+var_property_block =
     "{"
-        [ property { "," property } ]
+        [ var_property { "," var_property } ]
     "}" ;
 
-property =
+var_property =
     "Type" ":" type
     | "Constant"
-    | inchange_property ;
+    | inchange_property
+    | import_property ;
 
 inchange_property =
     "InChange"
@@ -92,4 +93,20 @@ function_call =
     "."
     "call"
     property_block ;
+```
+
+### Importing
+
+```EBNF
+import_decl =
+    ("import" | "from")
+    string
+    import_property_block
+    ";" ;
+
+import_property_block =
+    "{" [ import_property { "," import_property } ] "}" ;
+
+import_property =
+    "Import" ":" "[" string { "," string } "]" ;
 ```
