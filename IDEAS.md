@@ -4,7 +4,7 @@
 - New property for functions: `Body`:
 
   ```akuma
-  fc myFunction { ReturnType: Integer, Body: "return 10;" };
+  fc myFunction { ReturnType: Integer, Body: { return 10; } };
   ```
 
   The shorthand for `Body`:
