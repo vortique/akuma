@@ -66,6 +66,16 @@ inchange_property =
     "}" ;
 ```
 
+### Variable Change
+
+```EBNF
+var_change =
+    identifier
+    "="
+    expression
+    ";" ;
+```
+
 ### Expression
 
 ```EBNF

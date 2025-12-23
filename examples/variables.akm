@@ -1,0 +1,25 @@
+/* About File { IsDocument: false, Title: "About File" }
+
+Name: variables.akm
+Written by: Vortique
+Date: 2025-12-23
+
+*/
+
+import "akuma.default"; // Importing the "default" library (Required, If not added, all code is a plain text).
+from "akuma.io" { Import: ["echo"] }; // Importing the "echo" function from the "io" library for output.
+
+var number1 { Type: Integer } = 10;
+var number2 { Type: Integer } = 0;
+
+var sum { Type: Integer, InChange: { value + sum, AffectsInitValue: false } } = number1 + number2; // A function-like variable because of the InChange property.
+
+/* 
+    sum is available in InChange because of the AffectsInitValue property is false.
+    If it was true, the code will throw an error because it will try to use sum before it's initialized.
+*/
+
+sum = 5; // sum is 15 now because of the InChange property.
+sum = 10; // sum is 25 now because of the InChange property.
+
+echo.call { valueToPrint: sum }; // The output is: 25
