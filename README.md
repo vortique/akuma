@@ -162,3 +162,11 @@ from "akuma.io" { Import: ["echo"] } // Importing the "echo" function from the "
 */
 
 ```
+
+## Examples
+
+You can find more examples in the [examples](examples) directory.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.

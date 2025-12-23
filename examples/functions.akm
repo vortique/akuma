@@ -1,0 +1,25 @@
+/* About File { IsDocument: false, Title: "About File" }
+
+Name: functions.akm
+Written by: Vortique
+Date: 2025-12-23
+
+*/
+
+import "akuma.default"; // Importing the "default" library (Required, If not added, all code is a plain text).
+from "akuma.io" { Import: ["echo"] }; // Importing the "echo" function from the "io" library for output.
+
+fc multiply { 
+    ReturnType: Integer, // The return type of the function (Required).
+    Parameters: {
+        x: { Type: Integer }, // The first parameter (Required for calling the function).
+        y: { Type: Integer } // The second parameter (Required for calling the function).
+    }
+} => {
+    echo.call { valueToPrint: "I'm in the function!" };
+    return x * y;
+}
+
+var result { Type: Integer } = multiply.call { x: 10, y: 2 }; // Calling the function.
+
+echo.call { valueToPrint: result }; // Output will be 20.
