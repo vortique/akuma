@@ -5,7 +5,7 @@ A property-based programming language.
 ## Features
 
 - Everything have a property.
-- Everyting can be a property.
+- Everything can be a property.
 
 > I don't know anything more than this (for now).
 
