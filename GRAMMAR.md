@@ -66,6 +66,8 @@ inchange_property =
     "}" ;
 ```
 
+TODO: expression is unknown, fix it.
+
 ### Variable Change
 
 ```EBNF
@@ -104,6 +106,10 @@ function_call =
     "call"
     property_block ;
 ```
+
+TODO: property_block is not defined. fix it anda add it to new another title for functions.
+
+TODO: Add unary operatör. 
 
 ### Importing
 
